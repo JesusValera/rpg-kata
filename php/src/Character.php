@@ -22,4 +22,9 @@ final class Character
 
         $character->health -= $damage;
     }
+
+    public function heal(Character $patient, int $healthPoints): void
+    {
+        $patient->health += $healthPoints;
+    }
 }
