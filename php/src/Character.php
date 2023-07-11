@@ -9,7 +9,6 @@ final class Character
     public function __construct(
         private int $health = 1000,
         private int $level = 1,
-        private bool $isAlive = true,
     ) {
     }
 
@@ -25,9 +24,15 @@ final class Character
 
     public function heal(Character $patient, int $healthPoints): void
     {
-        if ($patient->health === 0) {
+        if ($patient->isDead()) {
             return;
         }
+
         $patient->health += $healthPoints;
+    }
+
+    private function isDead(): bool
+    {
+        return $this->health === 0;
     }
 }

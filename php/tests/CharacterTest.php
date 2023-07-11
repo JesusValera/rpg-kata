@@ -13,7 +13,7 @@ final class CharacterTest extends TestCase
     public function it_creates_a_default_character_with_values(): void
     {
         $defaultCharacter = new Character();
-        $character = new Character(health: 1000, level: 1, isAlive: true);
+        $character = new Character(health: 1000, level: 1);
 
         self::assertEquals($defaultCharacter, $character);
     }
