@@ -15,6 +15,11 @@ final class Character
 
     public function attack(Character $character, int $damage): void
     {
+        if ($character->health < $damage) {
+            $character->health = 0;
+            return;
+        }
+
         $character->health -= $damage;
     }
 }

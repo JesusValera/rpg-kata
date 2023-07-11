@@ -29,4 +29,16 @@ final class CharacterTest extends TestCase
         $victimAfterAttack = new Character(health: 950);
         self::assertEquals($victimAfterAttack, $victim);
     }
+
+    /** @test */
+    public function it_cannot_have_negative_health(): void
+    {
+        $attacker = new Character();
+        $victim = new Character(health: 1000);
+
+        $attacker->attack($victim, 1001);
+
+        $victimAfterAttack = new Character(health: 0);
+        self::assertEquals($victimAfterAttack, $victim);
+    }
 }
