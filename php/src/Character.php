@@ -25,6 +25,9 @@ final class Character
 
     public function heal(Character $patient, int $healthPoints): void
     {
+        if ($patient->health === 0) {
+            return;
+        }
         $patient->health += $healthPoints;
     }
 }

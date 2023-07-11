@@ -53,4 +53,16 @@ final class CharacterTest extends TestCase
         $patientAfterHealed = new Character(health: 950);
         self::assertEquals($patientAfterHealed, $patient);
     }
+
+    /** @test */
+    public function it_cannot_heal_dead_character(): void
+    {
+        $doctor = new Character();
+        $deadCharacter = new Character(health: 0);
+
+        $doctor->heal($deadCharacter, 50);
+
+        $deadAfterCharacter = new Character(health: 0);
+        self::assertEquals($deadAfterCharacter, $deadCharacter);
+    }
 }
