@@ -12,4 +12,9 @@ final class Character
         private bool $isAlive = true,
     ) {
     }
+
+    public function attack(Character $character, int $damage): void
+    {
+        $character->health -= $damage;
+    }
 }

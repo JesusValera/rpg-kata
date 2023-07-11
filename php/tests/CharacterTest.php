@@ -17,4 +17,16 @@ final class CharacterTest extends TestCase
 
         self::assertEquals($defaultCharacter, $character);
     }
+
+    /** @test */
+    public function it_decrease_health_when_character_attack(): void
+    {
+        $attacker = new Character();
+        $victim = new Character(health: 1000);
+
+        $attacker->attack($victim, 50);
+
+        $victimAfterAttack = new Character(health: 950);
+        self::assertEquals($victimAfterAttack, $victim);
+    }
 }
